@@ -50,7 +50,7 @@ export default class MainView extends Component {
                                 } 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'MUSIC' ? // must use '==='
+                                    style={this.state.currentText === 'MUSIC' && this.state.showModal ? // must use '==='
                                     styles.pickedTextScrollView : styles.textScrollView} 
                                 >
                                     MUSIC
@@ -66,7 +66,7 @@ export default class MainView extends Component {
                                 } 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'TASK' ? 
+                                    style={this.state.currentText === 'TASK' && this.state.showModal ? 
                                     styles.pickedTextScrollView : styles.textScrollView} 
                                 >
                                     TASK
@@ -82,7 +82,7 @@ export default class MainView extends Component {
                                 } 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'TIP' ? 
+                                    style={this.state.currentText === 'TIP' && this.state.showModal ? 
                                     styles.pickedTextScrollView : styles.textScrollView} 
                                 >
                                     TIP
@@ -95,7 +95,7 @@ export default class MainView extends Component {
                                 } 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'CHART' ? 
+                                    style={this.state.currentText === 'CHART' && this.state.showModal ? 
                                     styles.pickedTextScrollView : styles.textScrollView} 
                                 >
                                     CHART
@@ -108,7 +108,7 @@ export default class MainView extends Component {
                                 } 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'STORY' ? 
+                                    style={this.state.currentText === 'STORY' && this.state.showModal ? 
                                     styles.pickedTextScrollView : styles.textScrollView} 
                                 >
                                     STORY
@@ -121,6 +121,10 @@ export default class MainView extends Component {
         return null;
     }
 
+    closeModal() {
+        this.setState({ showModal: false });
+    }
+    
     contentModal() {
         switch (this.state.currentText) {
             case 'MUSIC':
@@ -128,7 +132,7 @@ export default class MainView extends Component {
             case 'TASK':
                 return <TaskModal />;
             case 'TIP':
-                return <TipModal />;
+                return <TipModal closeModalProp={() => this.closeModal()} />;
             default:
                 return '';
         }
