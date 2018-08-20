@@ -6,7 +6,7 @@ import Menu from './Menu';
 export default class Main extends Component {
     openMenu = () => {
         this.drawer.open();
-      };
+    };
     
     render() {
         return (
