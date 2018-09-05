@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
-import Drawer from 'react-native-drawer';
-import MainView from './MainView';
-import Menu from './Menu';
+import { createStackNavigator } from 'react-navigation';
+import Story from './Story';
+import DrawerComponent from './Drawer';
+import Chart from './Chart';
 
-export default class Main extends Component {
-    openMenu = () => {
-        this.drawer.open();
-    };
-    
-    render() {
-        return (
-            <Drawer
-                ref={(ref) => { this.drawer = ref; }}
-                type="displace"
-                content={<Menu />}
-                openDrawerOffset={0.25}
-                tapToClose
-                tweenHandler={(ratio) => ({
-                    main: { opacity: (2 - ratio) / 2 }
-                })}
-                side='right'
-                styles={drawerStyles}
-            >
-                <MainView openMenuProp={() => this.openMenu()} />
-            </Drawer>
-        );
-    }
+export default class App extends Component {
+  render() {
+    return (
+      <RootStack />
+    );
+  }
 }
 
-const drawerStyles = {
-    drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 }
-};
+const RootStack = createStackNavigator(
+  {
+    DRAWERCOMPONENT: {
+      screen: DrawerComponent,
+      navigationOptions: () => ({ header: null })
+    },
+
+    CHART: {
+      screen: Chart,
+      navigationOptions: () => ({ header: null })
+    },
+
+    STORY: {
+      screen: Story,
+      navigationOption: () => ({ header: null })
+    },
+  },
+
+  {
+    initialRouteName: 'DRAWERCOMPONENT'
+  }
+);
+

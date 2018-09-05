@@ -90,26 +90,20 @@ export default class MainView extends Component {
                             </TouchableOpacity>
 
                             <TouchableOpacity 
-                                onPress={
-                                    () => this.setState({ currentText: 'CHART' })
-                                } 
+                                onPress={this.props.goToChartProp} 
                             >
                                 <Text 
-                                    style={this.state.currentText === 'CHART' && this.state.showModal ? 
-                                    styles.pickedTextScrollView : styles.textScrollView} 
+                                    style={styles.textScrollView} 
                                 >
                                     CHART
                                 </Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity 
-                                onPress={
-                                    () => this.setState({ currentText: 'STORY' })
-                                } 
+                                onPress={this.props.goToStoryProp} 
                             >
-                                <Text 
-                                    style={this.state.currentText === 'STORY' && this.state.showModal ? 
-                                    styles.pickedTextScrollView : styles.textScrollView} 
+                                <Text
+                                    style={styles.textScrollView} 
                                 >
                                     STORY
                                 </Text>
