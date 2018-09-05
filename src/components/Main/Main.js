@@ -26,7 +26,7 @@ const RootStack = createStackNavigator(
 
     STORY: {
       screen: Story,
-      navigationOption: () => ({ header: null })
+      navigationOption: () => ({ header: null }) //Van bi hien header trong khi Chart screen khong bi?
     },
   },
 

@@ -15,7 +15,7 @@ const backButton = require('../../Media/Images/MainImages/back.png');
 const menuButton = require('../../Media/Images/MainImages/burger.png');
 const chart = require('../../Media/Images/ChartImages/chart.png');
 
-export default class Chart extends Component {
+export default class ChartView extends Component {
 
     constructor(props) {
         super(props);

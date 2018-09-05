@@ -3,7 +3,7 @@ import Drawer from 'react-native-drawer';
 import ChartView from './ChartView';
 import Menu from './Menu';
 
-export default class DrawerComponent extends Component {
+export default class Chart extends Component {
     openMenu = () => {
         this.drawer.open();
     };
