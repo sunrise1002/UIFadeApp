@@ -142,7 +142,7 @@ export default class MainView extends Component {
                         </TouchableOpacity>  
 
                         <Text style={styles.textTopBar} >
-                            MAIN SCREEN
+                            M A I N   S C R E E N
                         </Text>
 
                         <TouchableOpacity 

@@ -23,7 +23,7 @@ export default class Menu extends Component {
             shortcutButton: false
         };
     }
-    
+
     render() {
         return (
              <View style={styles.container} >
@@ -35,7 +35,10 @@ export default class Menu extends Component {
                             Selena Verseghy
                         </Text>
 
-                        <TouchableOpacity style={styles.buttonTopContainer} >
+                        <TouchableOpacity 
+                            style={styles.buttonTopContainer} 
+                            onPress={this.props.goToLoginProp}
+                        >
                             <Text style={styles.textTopButton} >
                                 SWITCH
                             </Text>

@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import Drawer from 'react-native-drawer';
-import MainView from './MainView';
-import Menu from './Menu';
+import LoginView from './LoginView';
+import Menu from '../Main/Menu';
 
-export default class DrawerComponent extends Component {
+export default class Login extends Component {
     openMenu = () => {
         this.drawer.open();
     };
     
-    goToChart() {
-        this.props.navigation.navigate('CHART');
+    goToMain() {
+        this.props.navigation.navigate('DRAWERCOMPONENT');
     }
 
-    goToStory() {
-        this.props.navigation.navigate('STORY');
+    goBack() {
+        this.props.navigation.goBack();
     }
 
-    goToLogin() {
-        this.props.navigation.navigate('LOGIN');
-    }
-    
     render() {
         return (
             <Drawer
                 ref={(ref) => { this.drawer = ref; }}
                 type="displace"
-                content={<Menu goToLoginProp={() => this.goToLogin()} />}
+                content={<Menu />}
                 openDrawerOffset={0.25}
                 tapToClose
                 tweenHandler={(ratio) => ({
@@ -34,10 +30,10 @@ export default class DrawerComponent extends Component {
                 side='right'
                 styles={drawerStyles}
             >
-                <MainView 
+                <LoginView 
                     openMenuProp={() => this.openMenu()} 
-                    goToChartProp={() => this.goToChart()}
-                    goToStoryProp={() => this.goToStory()}
+                    goToMainProp={() => this.goToMain()}
+                    goBackProp={() => this.goBack()}
                 />
             </Drawer>
         );

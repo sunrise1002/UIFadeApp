@@ -5,8 +5,10 @@ import Music from './src/components/Music/Music';
 import Calendar from './src/components/Calendar/Calendar';
 import Travel from './src/components/Travel/Travel';
 import Workout from './src/components/Workout/Workout';
+import Login from './src/components/Login/Login';
 
 export default class App extends Component {
+  
   render() {
     return (
       <RootStack />
@@ -38,6 +40,11 @@ const RootStack = createStackNavigator(
 
     WORKOUT: {
       screen: Workout,
+      navigationOptions: () => ({ header: null })
+    },
+
+    LOGIN: {
+      screen: Login,
       navigationOptions: () => ({ header: null })
     }
   },
