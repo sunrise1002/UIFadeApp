@@ -11,13 +11,24 @@ export default class Chart extends Component {
     goBack() {
         this.props.navigation.goBack();
     }
+
+    goToLogin() {
+        this.props.navigation.navigate('LOGIN');
+    }
+
+    goToMusicScreen() {
+        this.props.navigation.navigate('MUSIC');
+    }
     
     render() {
         return (
             <Drawer
                 ref={(ref) => { this.drawer = ref; }}
                 type="displace"
-                content={<Menu />}
+                content={<Menu 
+                    goToLoginProp={() => this.goToLogin()} 
+                    goToMusicScreenProp={() => this.goToMusicScreen()}  
+                />}
                 openDrawerOffset={0.25}
                 tapToClose
                 tweenHandler={(ratio) => ({

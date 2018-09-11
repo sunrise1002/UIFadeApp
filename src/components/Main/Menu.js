@@ -53,7 +53,7 @@ export default class Menu extends Component {
                 <View style={styles.line} />
 
                 <View style={styles.middleContainer} >
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.props.goToMusicScreenProp} >
                         <Text style={styles.textOption} >
                             YOUR MUSIC
                         </Text>
